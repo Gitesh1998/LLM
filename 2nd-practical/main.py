@@ -26,3 +26,21 @@ iterations = 20
 
 # Run Batch Gradient Descent
 final_x, history = gradient_descent_batch(initial_x, learning_rate, iterations)
+
+# Plot the function
+x_vals = np.linspace(-1, 7, 100)
+y_vals = f(x_vals)
+
+plt.figure(figsize=(10, 6))
+plt.plot(x_vals, y_vals, label='f(x) = (x - 3)^2')
+
+# Plot the gradient descent steps
+history = np.array(history)
+plt.scatter(history, f(history), color='red', label='Gradient Descent Steps')
+plt.plot(history, f(history), color='red', linestyle='--')
+
+plt.title('Batch Gradient Descent Optimization')
+plt.xlabel('x')
+plt.ylabel('f(x)')
+plt.legend()
+plt.show()
